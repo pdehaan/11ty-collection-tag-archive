@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-{%- assign $title = title -%}
-{%- if renderData.title -%}
-  {%- assign $title = renderData.title -%}
-{%- endif -%}
+{%- assign $title = title | or: renderData.title1, renderData.title2, renderData.title -%}
 <html lang="en">
   <head>
     <meta charset="utf-8" />

@@ -1,5 +1,39 @@
----
-title: About me
+---js
+{
+  title: "About me",
+  values: [
+    {label:"true", value:true},
+    {label:"false", value:false},
+    {label:"null", value:null},
+    {label:"undefined", value:undefined},
+    {label:"string", value:"string"},
+    {label:"empty string", value:""},
+    {label:"0", value:0},
+    {label:"integer", value:1},
+    {label:"float", value:1.1},
+    {label:"array", value:[1,2,3]},
+    {label:"empty array", value:[]}
+  ]
+}
 ---
 
 <p>About me? I'm pretty underwhelming. Prepare to be underwhelmed.</p>
+
+<table>
+<thead>
+<tr>
+  <th>value</th>
+  <th><code>truthy</code></th>
+  <th><code>falsy</code></th>
+</tr>
+</thead>
+<tbody>
+{% for item in values %}
+<tr>
+  <th><code>{{ item.label }}</code></th>
+  <td>{{ item.value | truthy | check }}</td>
+  <td>{{ item.value | falsy | check }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
