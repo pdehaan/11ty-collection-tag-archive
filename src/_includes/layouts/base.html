@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{%- assign $title = title -%}
+{%- if renderData.title -%}
+  {%- assign $title = renderData.title -%}
+{%- endif -%}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ $title }}</title>
+  </head>
+  <body>
+    <div class="container">
+      {{ content | strip }}
+    </div>
+
+    <fieldset>
+      <legend>DEBUG</legend>
+      <dl>
+        <dt><code>title</code>:</dt>
+        <dd><pre>{{ title | dump }}</pre></dd>
+
+        <dt><code>renderData</code>:</dt>
+        <dd><pre>{{ renderData | dump }}</pre></dd>
+
+        <dt><code>versions</code>:</dt>
+        <dd><pre>{{ versions | dump }}</pre></dd>
+      </dl>
+    </fieldset>
+  </body>
+</html>

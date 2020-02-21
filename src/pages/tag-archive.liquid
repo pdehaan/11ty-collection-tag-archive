@@ -1,0 +1,22 @@
+---
+layout: layouts/page.html
+eleventyExcludeFromCollections: true
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - post
+permalink: "/tags/{{ tag | slug }}/"
+renderData:
+  title: "{{ tag }} Archive"
+---
+
+<h1><q>{{ tag }}</q> Archive</h1>
+
+{% assign posts = collections[tag] %}
+{% for post in posts %}
+  <p><a href="{{ post.url | url }}">{{ post.data.title }}</a> &mdash; {{ post.date | date: "%Y-%m-%d" }}</p>
+{% else %}
+  <p>No posts found in {{ tag }} category.</p>
+{% endfor %}

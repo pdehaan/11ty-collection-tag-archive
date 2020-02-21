@@ -1,0 +1,14 @@
+---
+title: Homepage
+permalink: "index.html"
+---
+
+<p>This is the homepage. Cool.</p>
+
+<p>Here are all my posts:</p>
+{% assign posts = collections.post %}
+{% for post in posts %}
+  <p><a href="{{ post.url | url }}">{{ post.data.title }}</a> &mdash; {{ post.date | date: "%Y-%m-%d" }}</p>
+{% else %}
+  <p>No posts found in {{ tag }} category.</p>
+{% endfor %}
